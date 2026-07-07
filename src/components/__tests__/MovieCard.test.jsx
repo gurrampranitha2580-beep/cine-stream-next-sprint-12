@@ -8,15 +8,6 @@ import MovieCard from "../MovieCard";
 import favoritesReducer from "@/store/slices/favoritesSlice";
 import filterReducer from "@/store/slices/filterSlice";
 
-jest.mock("../MovieCard", () => {
-  function MockMovieCard({ movie }) {
-    return <div>{movie.title}</div>;
-  }
-
-  MockMovieCard.displayName = "MockMovieCard";
-
-  return MockMovieCard;
-});
 
 const sampleMovie = {
   id: 101,
