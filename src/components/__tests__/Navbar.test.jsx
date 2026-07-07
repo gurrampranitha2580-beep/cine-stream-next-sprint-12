@@ -8,11 +8,13 @@ import favoritesReducer from "@/store/slices/favoritesSlice";
 import filterReducer from "@/store/slices/filterSlice";
 
 jest.mock("next/link", () => {
-  return ({ children, href, ...props }) => (
-    <a href={href} {...props}>
-      {children}
-    </a>
-  );
+  function MockLink({ children, href }) {
+    return <a href={href}>{children}</a>;
+  }
+
+  MockLink.displayName = "MockLink";
+
+  return MockLink;
 });
 
 function renderNavbar(initialFavorites = []) {

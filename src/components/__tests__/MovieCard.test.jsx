@@ -8,12 +8,14 @@ import MovieCard from "../MovieCard";
 import favoritesReducer from "@/store/slices/favoritesSlice";
 import filterReducer from "@/store/slices/filterSlice";
 
-jest.mock("next/link", () => {
-  return ({ children, href, ...props }) => (
-    <a href={href} {...props}>
-      {children}
-    </a>
-  );
+jest.mock("../MovieCard", () => {
+  function MockMovieCard({ movie }) {
+    return <div>{movie.title}</div>;
+  }
+
+  MockMovieCard.displayName = "MockMovieCard";
+
+  return MockMovieCard;
 });
 
 const sampleMovie = {
