@@ -13,7 +13,7 @@ export default function MovieCard({ movie }) {
 
   const favorites = useSelector((state) => state.favorites.favorites);
   
-  console.log("Redux Favorites:", favorites);
+  
 
   let posterUrl = null;
 

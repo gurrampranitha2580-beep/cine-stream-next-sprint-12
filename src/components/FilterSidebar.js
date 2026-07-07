@@ -16,9 +16,9 @@ export default function FilterSidebar() {
     <aside className="filter-sidebar">
       <h3>Filters</h3>
 
-      <label>Genre</label>
+      <label htmlFor="genre-select">Genre</label>
 
-      <select
+      <select id="genre-select"
         value={genre}
         onChange={(event) =>
           dispatch(setGenre(Number(event.target.value)))
@@ -32,9 +32,9 @@ export default function FilterSidebar() {
         <option value={10749}>Romance</option>
       </select>
 
-      <label>Release Year</label>
+      <label htmlFor="year-select">Release Year</label>
 
-      <select
+      <select id="year-select"
         value={year}
         onChange={(event) =>
           dispatch(setYear(event.target.value))

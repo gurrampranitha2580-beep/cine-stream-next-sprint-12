@@ -1,41 +1,45 @@
-# Development Prompts
+# Prompts Used
 
-1. Help migrate my existing CineStream React SPA to Next.js 15 using the App Router while preserving the existing UI and features.
+1. Help me set up Jest and React Testing Library in my Next.js 15 project.
 
-2. Explain how to replace react-router-dom routes with Next.js file-based routing.
+2. Can you guide me step by step to configure `jest.config.mjs` and `jest.setup.js` correctly?
 
-3. Show how to move the initial TMDB Popular Movies fetch from useEffect to a Server Component.
+3. How do I configure Jest to support my `@/` import alias?
 
-4. Help create a dynamic route using `/movie/[id]` and fetch movie details on the server.
+4. Help me write unit tests for my `favoritesSlice` Redux reducer.
 
-5. Implement generateMetadata so each movie page gets a dynamic title and description.
+5. Help me write unit tests for my `filterSlice` Redux reducer.
 
-6. My TMDB search request is exposing the API key in the browser. Help move search functionality into a Next.js API route.
+6. Can you help me test my `MovieCard` component using React Testing Library?
 
-7. Add debounced search functionality and display a proper "No movies found" state when no results are returned.
+7. How do I test the favorite button click in `MovieCard`?
 
-8. Search results are creating layout and spacing issues compared to the original CineStream project. Help restore the previous card alignment without affecting the existing movie grid.
+8. Help me write tests for my `Navbar` component.
 
-9. Add a Favorites feature using Context API and localStorage.
+9. How do I test my `SearchSection` component without making real API calls?
 
-10. Display the favorites count in the navbar and keep it synchronized when movies are added or removed.
+10. My `SearchSection` test is timing out after using `userEvent.type()`. How can I fix it?
 
-11. Favorites persist after refresh, but the navbar count does not update correctly. Help debug and fix it.
+11. Why am I getting `act(...)` warnings while testing `SearchSection`?
 
-12. Debug hydration mismatch warnings caused by localStorage-based favorite state after page refresh.
+12. Can you help me mock `fetch` for my search functionality?
 
-13. Movie cards are showing hydration errors because favorite icons render differently between server and client. Help identify and fix the issue.
+13. Help me write tests for my `FilterSidebar` component.
 
-14. Restore infinite scroll functionality from the previous CineStream implementation while keeping the initial movie fetch server-rendered.
+14. Why is `getByLabelText()` failing for my filter dropdowns?
 
-15. Prevent duplicate movie entries when additional pages are loaded through infinite scroll.
+15. Do I need to connect my labels using `htmlFor` and `id` for testing?
 
-16. Help debug production build failures related to React hooks, useEffect dependencies, and state updates.
+16. Help me test the TMDB helper functions by mocking API responses.
 
-17. Fix ESLint errors that appear during `npm run build` even though the application works correctly in development mode.
+17. Why am I getting `Cannot find module` while importing files in my test?
 
-18. Verify that dynamic routing, search, favorites, infinite scroll, and SEO metadata work correctly after migration.
+18. Which files should I prioritize testing to reach the required coverage efficiently?
 
-19. Review project structure and suggest a clean organization for API routes, components, context, and utility functions.
+19. Can you help me understand my Jest coverage report and identify low coverage files?
 
-20. Perform a final pre-deployment audit and identify any issues that could affect production deployment.
+20. My project coverage is below 70%. What is the fastest and cleanest way to improve it?
+
+21. Next.js is showing a hydration mismatch with `fdprocessedid`. Is this an issue in my code?
+
+22. Can you review whether my current tests are enough for the Sprint 11 requirements?

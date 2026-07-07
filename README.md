@@ -1,92 +1,97 @@
-# CineStream Next.js Migration
+# Cine Stream Next
 
-## Project Overview
-
-CineStream is a movie discovery application built using Next.js 15 and TMDB API.
-
-This project is an upgrade of the previous React SPA version. The application now utilizes Server-Side Rendering (SSR), App Router, dynamic routing, and metadata generation for improved SEO and performance.
-
----
+A movie browsing application built with Next.js using TMDB APIs.
 
 ## Features
 
-### Popular Movies
-
-* Fetches popular movies from TMDB
-* Initial data rendered on the server
-* Responsive movie card layout
-
-### Movie Search
-
-* Search movies by title
-* Debounced search requests
-* Displays "No movies found" when results are unavailable
-
-### Movie Details
-
-* Dynamic route using `/movie/[id]`
-* Displays poster, overview, release date, runtime, and rating
-* SEO metadata generated dynamically
-
-### Favorites
-
-* Add and remove favorite movies
-* Favorites stored in localStorage
-* Favorites page with count in navbar
-* Favorites persist after refresh
-
-### Infinite Scroll
-
-* Automatically loads additional popular movies while scrolling
-* Prevents duplicate movie entries
+- Browse popular movies
+- Search movies
+- View movie details
+- Favorite movies
+- Filter by genre
+- Filter by release year
+- Responsive UI
+- Redux Toolkit state management
+- LocalStorage persistence
+- Jest & React Testing Library support
 
 ---
 
-## Technologies Used
+## Tech Stack
 
-* Next.js 15
-* React
-* TMDB API
-* Context API
-* CSS
-* App Router
-
----
-
-## Routing Structure
-
-* `/` → Home Page
-* `/favorites` → Favorites Page
-* `/movie/[id]` → Movie Details Page
+- Next.js 15
+- React 19
+- Redux Toolkit
+- React Redux
+- TMDB API
+- Jest
+- React Testing Library
 
 ---
 
-## Setup
-
-Install dependencies:
+## Installation
 
 ```bash
 npm install
 ```
 
-Run development server:
+Create:
+
+```
+.env.local
+```
+
+Add:
+
+```
+TMDB_KEY=YOUR_API_KEY
+```
+
+Run:
 
 ```bash
 npm run dev
 ```
 
-Build production version:
+---
+
+## Testing
+
+Run tests
 
 ```bash
-npm run build
+npm test
+```
+
+Generate coverage
+
+```bash
+npm test -- --coverage
 ```
 
 ---
 
-## Environment Variable
+## Project Structure
 
-Create `.env.local`
-
-```env
-TMDB_KEY=YOUR_TMDB_API_KEY
 ```
+src/
+ ├── app/
+ ├── components/
+ ├── lib/
+ ├── store/
+ └── styles/
+```
+
+---
+
+## Test Coverage
+
+- Component Tests
+- Redux Slice Tests
+- API Helper Tests
+
+Coverage achieved:
+
+**78.16%**
+
+---
