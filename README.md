@@ -1,19 +1,30 @@
-# Cine Stream Next
+# CineStream Next - Sprint 12
 
-A movie browsing application built with Next.js using TMDB APIs.
+## Overview
 
-## Features
+CineStream Next is a movie browsing application built with **Next.js** and the **TMDB API**. It allows users to browse popular movies, search movies, manage favorites, and filter movies by genre and release year.
 
-- Browse popular movies
-- Search movies
-- View movie details
-- Favorite movies
-- Filter by genre
-- Filter by release year
-- Responsive UI
-- Redux Toolkit state management
-- LocalStorage persistence
-- Jest & React Testing Library support
+This sprint focuses on integrating **Storybook** to enable isolated component development, documentation, and UI testing.
+
+---
+
+## Objectives
+
+- Integrate Storybook into the existing Next.js application
+- Create reusable stories for application components
+- Configure Storybook with Redux support
+- Test UI components independently using mock data
+- Verify that Storybook does not affect the production application
+
+---
+
+## Components Covered
+
+| Component | Stories |
+|-----------|---------|
+| MovieCard | Default, Favorite |
+| Navbar | Default, With Favorites |
+| SearchSection | Default |
 
 ---
 
@@ -23,50 +34,49 @@ A movie browsing application built with Next.js using TMDB APIs.
 - React 19
 - Redux Toolkit
 - React Redux
-- TMDB API
+- Storybook 10
 - Jest
 - React Testing Library
+- TMDB API
 
 ---
 
 ## Installation
 
+Install dependencies:
+
 ```bash
 npm install
 ```
 
-Create:
+Create a `.env.local` file:
 
-```
-.env.local
-```
-
-Add:
-
-```
-TMDB_KEY=YOUR_API_KEY
+```env
+TMDB_KEY=YOUR_TMDB_API_KEY
 ```
 
-Run:
+Run the application:
 
 ```bash
 npm run dev
 ```
 
----
+Run Storybook:
 
-## Testing
+```bash
+npm run storybook
+```
 
-Run tests
+Build Storybook:
+
+```bash
+npm run build-storybook
+```
+
+Run Jest tests:
 
 ```bash
 npm test
-```
-
-Generate coverage
-
-```bash
-npm test -- --coverage
 ```
 
 ---
@@ -74,24 +84,31 @@ npm test -- --coverage
 ## Project Structure
 
 ```
+.storybook/
 src/
  ├── app/
  ├── components/
+ │    ├── MovieCard.jsx
+ │    ├── Navbar.jsx
+ │    ├── SearchSection.jsx
+ │    ├── FilterSidebar.jsx
+ │    ├── MovieCard.stories.js
+ │    ├── Navbar.stories.js
+ │    └── SearchSection.stories.js
  ├── lib/
- ├── store/
- └── styles/
+ └── store/
 ```
 
 ---
 
-## Test Coverage
+## Sprint 12 Deliverables
 
-- Component Tests
-- Redux Slice Tests
-- API Helper Tests
-
-Coverage achieved:
-
-**78.16%**
+- Storybook integrated successfully
+- Storybook configured for Next.js
+- Redux Provider configured for Storybook
+- Stories created for major UI components
+- Global styling applied in Storybook
+- Storybook build completed successfully
+- Existing application functionality preserved
 
 ---
