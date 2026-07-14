@@ -1,45 +1,41 @@
-# Prompts Used
+# Sprint 12 Development Prompts
 
-1. Help me set up Jest and React Testing Library in my Next.js 15 project.
+1. I have an existing Next.js 15 movie application. How can I integrate Storybook into the project without affecting the existing functionality?
 
-2. Can you guide me step by step to configure `jest.config.mjs` and `jest.setup.js` correctly?
+2. During Storybook installation, which configuration options should I select for component development, documentation, accessibility, and testing?
 
-3. How do I configure Jest to support my `@/` import alias?
+3. I installed Storybook in my Next.js project. Explain the purpose of the generated files like main.js, preview.jsx, and vitest configuration.
 
-4. Help me write unit tests for my `favoritesSlice` Redux reducer.
+4. My Storybook components are rendering only plain text and not showing the application's styling. Help me debug the missing CSS configuration.
 
-5. Help me write unit tests for my `filterSlice` Redux reducer.
+5. Storybook throws an error when loading globals.css. Explain why this happens and provide the correct configuration approach.
 
-6. Can you help me test my `MovieCard` component using React Testing Library?
+6. How should I configure preview.jsx in Storybook to apply my Next.js global styles and maintain consistency with the application UI?
 
-7. How do I test the favorite button click in `MovieCard`?
+7. My components use Redux Toolkit through useSelector and useDispatch. How can I create a reusable Redux Provider decorator for Storybook stories?
 
-8. Help me write tests for my `Navbar` component.
+8. Create a Storybook setup approach for testing state-dependent components like Navbar and MovieCard with different Redux states.
 
-9. How do I test my `SearchSection` component without making real API calls?
+9. How can I write a Storybook story for MovieCard that displays different scenarios such as default movie and favorite movie states?
 
-10. My `SearchSection` test is timing out after using `userEvent.type()`. How can I fix it?
+10. How can I pass mock movie data through Storybook args while keeping the stories clean and reusable?
 
-11. Why am I getting `act(...)` warnings while testing `SearchSection`?
+11. My TMDB image URLs work in the browser but images are broken inside Storybook. Help me identify the cause and fix the issue.
 
-12. Can you help me mock `fetch` for my search functionality?
+12. My Storybook SearchSection component depends on API calls. How should I handle API data and avoid real API requests while testing components?
 
-13. Help me write tests for my `FilterSidebar` component.
+13. SearchSection is giving 404 errors for API routes inside Storybook. Explain why this happens and suggest the correct mocking approach.
 
-14. Why is `getByLabelText()` failing for my filter dropdowns?
+14. How can I test components with different user interactions in Storybook, such as search input, filters, and favorite buttons?
 
-15. Do I need to connect my labels using `htmlFor` and `id` for testing?
+15. Storybook generated default example files that are not related to my project. Which files should be removed before committing?
 
-16. Help me test the TMDB helper functions by mocking API responses.
+16. Review my Storybook folder structure and suggest whether it contains only project-related components and configurations.
 
-17. Why am I getting `Cannot find module` while importing files in my test?
+17. I created Storybook stories for my components. How can I verify that they follow good component testing practices?
 
-18. Which files should I prioritize testing to reach the required coverage efficiently?
+18. My Git repository contains previous sprint history. How should I create and push Sprint 12 changes into a separate repository correctly?
 
-19. Can you help me understand my Jest coverage report and identify low coverage files?
+19. Before deployment, what checks should I perform to ensure Storybook integration has not affected the Next.js production build?
 
-20. My project coverage is below 70%. What is the fastest and cleanest way to improve it?
-
-21. Next.js is showing a hydration mismatch with `fdprocessedid`. Is this an issue in my code?
-
-22. Can you review whether my current tests are enough for the Sprint 11 requirements?
+20. Review my final Storybook setup and suggest improvements needed before project submission.
