@@ -66,6 +66,8 @@ describe("SearchSection", () => {beforeEach(() => {
   jest.useFakeTimers();
 
   global.fetch = jest.fn();
+
+  jest.spyOn(console, "log").mockImplementation(() => {});
 });
 
 afterEach(() => {
@@ -149,5 +151,101 @@ afterEach(() => {
   expect(global.fetch).toHaveBeenCalledWith(
     "/api/search?query=Batman"
   );
+});
+test("shows no movies found message", async () => {
+  const user = userEvent.setup({
+    advanceTimers: jest.advanceTimersByTime,
+  });
+
+  global.fetch.mockResolvedValue({
+    json: async () => ({
+      results: [],
+    }),
+  });
+
+  renderSearchSection();
+
+  const input =
+    screen.getByPlaceholderText(/search movies/i);
+
+  await user.type(input, "Unknown");
+
+  await act(async () => {
+    jest.advanceTimersByTime(500);
+  });
+
+  await waitFor(() => {
+    expect(
+      screen.getByText(/no movies found/i)
+    ).toBeInTheDocument();
+  });
+}); 
+test("handles search API failure", async () => {
+  const user = userEvent.setup({
+    advanceTimers: jest.advanceTimersByTime,
+  });
+
+  global.fetch.mockRejectedValue(
+    new Error("Network Error")
+  );
+
+  renderSearchSection();
+
+  const input =
+    screen.getByPlaceholderText(/search movies/i);
+
+  await user.type(input, "Batman");
+
+  await act(async () => {
+    jest.advanceTimersByTime(500);
+  });
+
+  await waitFor(() => {
+    expect(
+      screen.getByText(/no movies found/i)
+    ).toBeInTheDocument();
+  });
+});
+test("clears search and shows popular movies again", async () => {
+  const user = userEvent.setup({
+    advanceTimers: jest.advanceTimersByTime,
+  });
+
+  global.fetch.mockResolvedValue({
+    json: async () => ({
+      results: [
+        {
+          id: 99,
+          title: "Batman",
+          release_date: "2022-01-01",
+          vote_average: 8,
+          genre_ids: [28],
+        },
+      ],
+    }),
+  });
+
+  renderSearchSection();
+
+  const input =
+    screen.getByPlaceholderText(/search movies/i);
+
+  await user.type(input, "Batman");
+
+  await act(async () => {
+    jest.advanceTimersByTime(500);
+  });
+
+  await waitFor(() => {
+    expect(
+      screen.getByText("Batman")
+    ).toBeInTheDocument();
+  });
+
+  await user.clear(input);
+
+  expect(
+    screen.getByText("Inception")
+  ).toBeInTheDocument();
 });
 });
